@@ -1,0 +1,107 @@
+def add_to_list():
+    global myList
+
+    print('Enter your choice:\n\t1 for adding single value\n\t2 for adding multiple values\n\t3 for single value at a position')
+
+    choice=input(':')
+
+    if choice=='1':
+        val=input('your value:')
+        myList.append(val)
+    elif choice=='2':
+        user=[]
+        n=int(input('How many values:'))
+        for i in range(n):
+            user.append(input('Enter value {}: '.format(i+1)))
+        myList.extend(user)
+    elif choice=='3':
+        val=input('your value:')
+        pos=int(input('enter position(must be a integer):'))
+        myList.insert(pos-1,val)
+    else:
+        print('Invalid input.')    
+
+        
+def remove_from_list():
+    global myList
+
+    print('Enter your choice:\n\t1 for removing single value\n\t2 for removing at particular position\n\t3 for clearing the list')
+
+    choice=input(':')
+
+    if choice=='1':
+        val=input('value you want to remove:')
+        myList.remove(val)
+    elif choice=='2':
+        pos=int(input('enter position:'))
+        myList.pop(pos-1)    
+
+    elif choice=='3':
+    
+        print('Your list has been deleted.')
+        myList.clear()  
+
+    else:
+        print('Invalid input.')    
+        
+
+def count_from_list():
+    global myList
+    val=input('Enter value:')
+    a=myList.count(val)
+    print('{} is present {} times'.format(val,a))
+  
+       
+
+def find_an_element():
+    global myList
+    val = input('Enter value to find: ')   
+    b=myList.index(val)
+    print('{} is present at {} position'.format(val,b+1))
+
+       
+def for_arranging():
+    global myList
+
+    print('Enter your choice:\n\t1 for reverse\n\t2 for ascending order\n\t3 for descending order')
+
+    choice=input(':')
+
+    if choice=='1':
+        print('Your list is reversed.')
+        myList.reverse()
+    elif choice=='2':
+        myList.sort()
+    elif choice=='3':
+        myList.sort(reverse=True)
+    else:
+        print('Invalid Input.')            
+
+
+
+i,myList='y',[]
+while i=='y' or i=='Y':
+    print('Enter your choice:\n\t1 for add\n\t2 for remove\n\t3 for count\n\t4 for find\n\t5 for arrange')
+    choice=input(':')
+
+    if choice=='1':
+        add_to_list()
+    elif choice=='2':
+        remove_from_list()
+    elif choice=='3':
+        count_from_list()
+    elif choice=='4':
+        find_an_element()
+    elif choice=='5':
+        for_arranging()
+    else:
+        print('invalid input\nplease try again') 
+
+    print(myList)      
+       
+    i=input('want to continue? (y/n):')
+
+    
+
+
+
